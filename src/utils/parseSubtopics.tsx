@@ -1,105 +1,86 @@
 
-interface Typography {
-    headings: string; // Font name for headings
-    bodyText: string; // Font name for body text
-    usage: {
-      headings: { font: string; weight: string; sizeRange: string }; // Usage details for headings
-      body: { font: string; weight: string; sizeRange: string }; // Usage details for body text
-    };
-  }
-  
 
-export const parseColorPalette = (text: string) => {
-    const regex = /- \*\*(.*?)\*\*: (.*?) - (.*?)(\n|$)/g;
-    const colors = [];
-    let match;
-    while ((match = regex.exec(text)) !== null) {
-      colors.push({ name: match[1], code: match[2], description: match[3] });
+export const parseColorPalette = (text: string): Array<{ name: string; hex: string }> => {
+  const lines = text.split("\n");
+  const colors: Array<{ name: string; hex: string }> = [];
+
+  lines.forEach((line) => {
+    // Check if the line contains a color entry
+    if (line.includes("**") && line.includes(":") && line.includes("#") && colors.length < 4) {
+      const startName = line.indexOf("**") + 2;
+      const endName = line.indexOf("**", startName);
+      const name = line.substring(startName, endName).trim();
+
+      const hexStart = line.indexOf("#");
+      const hexEnd = line.indexOf(" ", hexStart) !== -1 ? line.indexOf(" ", hexStart) : line.length;
+      const hex = line.substring(hexStart, hexEnd).trim();
+
+      if (name && hex) {
+        colors.push({ name, hex });
+      }
     }
-    return colors;
-  };
+  });
 
-
-export const parseTypo = (text: string): Typography | null => {
-    try {
-      const normalizedText = text.toLowerCase();
-  
-      // Extract font name for headings
-      const headingsMatch = /headings:\s*use\s*"([^"]+)"/i.exec(text);
-      const headingsFont = headingsMatch ? headingsMatch[1] : "Unknown";
-  
-      // Extract font name for body text
-      const bodyTextMatch = /body\s*text:\s*use\s*"([^"]+)"/i.exec(text);
-      const bodyTextFont = bodyTextMatch ? bodyTextMatch[1] : "Unknown";
-  
-      // Extract usage details for headings
-      const usageHeadingsMatch =
-        /headings:\s*([^,]+),\s*([^,]+),\s*sizes\s*ranging\s*from\s*([^\.]+)/i.exec(
-          normalizedText
-        );
-      const usageHeadings = usageHeadingsMatch
-        ? {
-            font: usageHeadingsMatch[1],
-            weight: usageHeadingsMatch[2],
-            sizeRange: usageHeadingsMatch[3],
-          }
-        : { font: "Unknown", weight: "Unknown", sizeRange: "Unknown" };
-  
-      // Extract usage details for body text
-      const usageBodyMatch =
-        /body:\s*([^,]+),\s*([^,]+),\s*sizes\s*([^\.]+)/i.exec(normalizedText);
-      const usageBody = usageBodyMatch
-        ? {
-            font: usageBodyMatch[1],
-            weight: usageBodyMatch[2],
-            sizeRange: usageBodyMatch[3],
-          }
-        : { font: "Unknown", weight: "Unknown", sizeRange: "Unknown" };
-  
-      return {
-        headings: headingsFont,
-        bodyText: bodyTextFont,
-        usage: {
-          headings: usageHeadings,
-          body: usageBody,
-        },
-      };
-    } catch (error) {
-      console.error("Error parsing typography:", error);
-      return null;
-    }
+  return colors;
 };
 
-export const parseCustomerAnalysis = (text: string) => {
+ 
+export const parseTypo = (text: string): string[] => {
+  const lines = text.split("\n"); // Split the text into individual lines
+  const fonts: string[] = [];
+
+  lines.forEach((line) => {
+    if (line.startsWith("- **Headings**: Use **")) {
+      const start = line.indexOf("Use **") + 5; // Find the starting point of the font name
+      const end = line.indexOf("**", start); // Find the end point of the font name
+      if (start !== -1 && end !== -1) {
+        fonts.push(line.substring(start, end).trim()); // Extract and add the font name
+      }
+    }
+
+    if (line.startsWith("- **Body Text**: Use **")) {
+      const start = line.indexOf("Use **") + 5;
+      const end = line.indexOf("**", start);
+      if (start !== -1 && end !== -1) {
+        fonts.push(line.substring(start, end).trim());
+      }
+    }
+  });
+
+  return fonts;
+};
+
+
+
+  
+  
+  export const parseCustomerAnalysis = (text: string) => {
+    console.log("Parsing Customer Analysis...");
     const data = {
       age: "",
       location: "",
       engagement: "",
     };
   
-    // Normalize text for easier parsing
     const normalizedText = text.toLowerCase();
-  
-    // Extract Age
     const ageMatch = normalizedText.match(/age:\s*([\w\s\-]+?years?)/);
     if (ageMatch) {
       data.age = ageMatch[1].trim();
     }
   
-    // Extract Location
     const locationMatch = normalizedText.match(/location:\s*([\w\s\-,]+(\([^)]*\))?)/);
     if (locationMatch) {
       data.location = locationMatch[1].trim();
     }
   
-    // Extract Engagement
     const engagementMatch = normalizedText.match(/engagement:\s*([\w\s,]+(?:\.[^.]+)?)/);
     if (engagementMatch) {
       data.engagement = engagementMatch[1].trim();
     }
   
+    console.log("Parsed Customer Analysis:", data);
     return data;
-};
+  };
 
 export const parseSubtopics = (text: string, subtopics: string[]) => {
     const parsedSubtopics: { [key: string]: string } = {};

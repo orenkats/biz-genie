@@ -13,12 +13,19 @@ interface Subtopics {
 }
 
 interface DashboardData {
-  overview: {full : string};  
+  overview: { 
+    full: string; 
+    colors: string[]; // Updated to an array of hex color strings
+    typo: string[];   // Updated to an array of font names
+    costumerAnalysis: { age: string; location: string; engagement: string };
+  };
   branding: { full: string; subtopics: Subtopics };
   businessPlan: { full: string; subtopics: Subtopics };
   marketingStrategy: { full: string; subtopics: Subtopics };
   legalGuide: { full: string; subtopics: Subtopics };
 }
+
+
 
 const BusinessPlan = () => {
   const router = useRouter();
@@ -70,13 +77,17 @@ const BusinessPlan = () => {
     }
 
     if (selectedItem === "Overview" && dashboardData) {
-        return (
-          <OverviewCard
-            content={dashboardData.overview?.full || "No data available for Overview"}
-          />
-        );
-      }
-
+      return (
+        <OverviewCard
+          data={{
+            colorPalette: dashboardData.overview.colors || [],
+            typography: dashboardData.overview.typo || [],
+            customerAnalysis: dashboardData.overview.costumerAnalysis || { age: "", location: "", engagement: "" },
+          }}
+        />
+      );
+    }
+    
     // Retrieve content for the selected item
     const content = Object.values(dashboardData || {}).reduce((acc, section: any) => {
       return acc || section.subtopics?.[selectedItem] || null;

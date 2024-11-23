@@ -7,7 +7,9 @@ import {
 import { cn } from "@/lib/utils";
    
 const menuItems = {
-    "Overview":[],
+    "Overview":[
+      "Overview"
+    ],
     "Branding": [
       "Logo Concept",
       "Color Palette",

@@ -23,18 +23,18 @@ const ColorPaletteCard: React.FC<ColorPaletteCardProps> = ({ colors }) => {
             >
               <div
                 className="w-10 h-10 rounded-full shadow-lg transform transition-all duration-300 group-hover:scale-110 flex-shrink-0"
-                style={{ backgroundColor: color.hex }}
+                style={{ backgroundColor: color.hex }} // Dynamically apply the background color
               />
               <div className="flex-1">
                 <div className="flex justify-between items-center">
-                  <span className="font-medium">{color.name}</span>
+                  <span className="font-medium">{color.name}</span> {/* Display color name */}
                   <span className="text-sm text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity">
                     {color.hex}
                   </span>
                 </div>
                 <div
                   className="h-0.5 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
-                  style={{ backgroundColor: color.hex }}
+                  style={{ backgroundColor: color.hex }} // Use the color for the underline
                 />
               </div>
             </div>
