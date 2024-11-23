@@ -14,8 +14,15 @@ import ExecutiveSummaryCard from "@/components/landing/ExecutiveSummaryCard";
 import KeyMetricsCard from "@/components/landing/KeyMetricsCard";
 import TimelineCard from "@/components/landing/TimelineCard";
 import MarketShareCard from "@/components/landing/MarketShareCard";
-import { Component } from "@/components/landing/lineChart";
+import {ProgressChart}  from "@/components/landing/ProgressChart";
 import { AccordionDemo } from "@/components/landing/AccordionDemo";
+import { InputEmail } from "@/components/landing/InputEmail";
+import dynamic from "next/dynamic";
+
+const DynamicMarketShareCard = dynamic(() => import("@/components/landing/MarketShareCard"), {
+  ssr: false, // Disable SSR for this component
+});
+
 
 const Index = () => {
   return (
@@ -37,7 +44,7 @@ const Index = () => {
               <ColorPaletteCard />
               <div className="grid gap-8">
                 <LogoConceptCard />
-                <Component/>
+                <ProgressChart/>
               </div>
               
             </div>
@@ -49,11 +56,14 @@ const Index = () => {
             <div className="flex flex-col gap-8">
              
               <LegalGuideCard className="max-h-[300px] overflow-y-auto" />
-              <MarketShareCard />
+              <DynamicMarketShareCard />
             </div>
             
           </div>
-          <hr className="my-8 border-t border-gray-300/50" />
+          <hr className="my-6 border-t border-gray-300/50 " />
+          {/* <div className=" p-4 flex items justify-center">
+            <InputEmail/>
+          </div> */}
             <Footer/>
           
         </div>

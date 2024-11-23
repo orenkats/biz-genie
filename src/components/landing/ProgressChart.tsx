@@ -32,7 +32,8 @@ const chartConfig = {
     color: "#86A789",
   },
 } satisfies ChartConfig
-export function Component() {
+
+export function ProgressChart() {
   return (
     <Card className="hover:scale-105 transition-transform duration-300 h-52  overflow-hidden animate-fade-in-slow">
       <CardHeader>
@@ -44,8 +45,10 @@ export function Component() {
       <CardContent className="flex-1 overflow-hidden ">
         <ChartContainer config={chartConfig}>
           <LineChart
+          
             accessibilityLayer
-            data={chartData}        
+            data={chartData}  
+                  
             margin={{
               left: 12,
               right: 12,
