@@ -72,7 +72,6 @@ const BusinessPlan = () => {
     if (selectedItem === "Overview" && dashboardData) {
         return (
           <OverviewCard
-            title="Overview"
             content={dashboardData.overview?.full || "No data available for Overview"}
           />
         );
