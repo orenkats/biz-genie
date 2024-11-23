@@ -1,0 +1,223 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Radley:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 262 85% 74%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 262 27% 54%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4 {
+  /* margin-top: 1rem; Adds space before headers */
+   /* Adds space after headers */
+}
+.markdown-content p {
+  margin-bottom: 1rem; /* Space between paragraphs */
+}
+
+.markdown-content > *:not(:last-child) {
+  margin-bottom: 1rem; /* Ensure consistent spacing between all elements */
+}
+
+
+.hero-pattern {
+  @apply absolute inset-0 -z-10 overflow-hidden;
+}
+
+.hero-pattern-gradient {
+  @apply absolute inset-0 bg-gradient-to-b from-[#F5F7F4] via-[#E8EDE7] to-[#DCE4DB] opacity-70;
+}
+
+.hero-pattern-svg {
+  @apply absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-[#86A789] opacity-40;
+  mask-image: radial-gradient(64rem 64rem at top, white, transparent);
+}
+
+.hero-pattern-overlay {
+  @apply absolute w-full h-full bg-[#86A789] opacity-10 mix-blend-multiply;
+}
+/* Scoped Styles for `.dash-tabs` */
+.dash-tabs {
+  /* Apply root variables directly */
+  --background: 120 15% 98%;
+  --foreground: 120 10% 15%;
+
+  --card: 120 15% 98%;
+  --card-foreground: 120 10% 15%;
+
+  --popover: 120 15% 98%;
+  --popover-foreground: 120 10% 15%;
+
+  --primary: 120 15% 40%;
+  --primary-foreground: 120 10% 98%;
+
+  --secondary: 120 10% 90%;
+  --secondary-foreground: 120 10% 30%;
+
+  --muted: 120 10% 90%;
+  --muted-foreground: 120 5% 45%;
+
+  --accent: 120 15% 85%;
+  --accent-foreground: 120 10% 30%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 120 10% 98%;
+
+  --border: 120 15% 85%;
+  --input: 120 15% 85%;
+  --ring: 120 15% 40%;
+
+  --radius: 0.5rem;
+
+  .dark {
+    --background: 120 15% 10%;
+    --foreground: 120 10% 98%;
+
+    --card: 120 15% 10%;
+    --card-foreground: 120 10% 98%;
+
+    --popover: 120 15% 10%;
+    --popover-foreground: 120 10% 98%;
+
+    --primary: 120 15% 85%;
+    --primary-foreground: 120 10% 15%;
+
+    --secondary: 120 10% 25%;
+    --secondary-foreground: 120 10% 98%;
+
+    --muted: 120 10% 25%;
+    --muted-foreground: 120 5% 65%;
+
+    --accent: 120 15% 25%;
+    --accent-foreground: 120 10% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 120 10% 98%;
+
+    --border: 120 15% 25%;
+    --input: 120 15% 25%;
+    --ring: 120 15% 85%;
+  }
+  /* Typography */
+  font-family: 'Inter', sans-serif;
+  
+
+  h2 {
+    font-family: 'DM Serif Text', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Card Styling */
+  .card {
+    
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+
+  .tab {
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .tab:hover {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .tab.active {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    font-weight: 600;
+  }
+
+  /* Animations */
+  .card.animate {
+    animation: fade-in 0.5s ease-in-out;
+  }
+
+  
+  
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
