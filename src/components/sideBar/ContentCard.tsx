@@ -16,6 +16,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import ReactMarkdown from "react-markdown"; 
+
 interface ContentCardProps {
   title: string;
   content: string;

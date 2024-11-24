@@ -15,7 +15,7 @@ interface Subtopics {
 interface DashboardData {
   overview: { 
     full: string; 
-    colors: string[]; // Updated to an array of hex color strings
+    colors: { name: string; hex: string }[]; // Updated to an array of hex color strings
     typo: string[];   // Updated to an array of font names
     costumerAnalysis: { age: string; location: string; engagement: string };
   };
@@ -66,7 +66,7 @@ const BusinessPlan = () => {
         <div className="flex items-center justify-center h-full">
           <h1
             className={classNames(
-              "absolute top-0 w-full text-center mt-4 z-10 text-3xl font-bold text-eggplant",
+              "absolute top-0 w-full text-center mt-4 z-10 text-3xl font-bold text-primary",
               { "animate-pulse": isLoading }
             )}
           >
