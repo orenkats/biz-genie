@@ -6,8 +6,8 @@ const LegalGuideCard = ({ className = "" }) => {
     <Card className={`hover:scale-105 transition-transform duration-300 ${className}`}>
       <CardHeader className=" flex items-center pb-2 ">
         <div className="flex items-center space-x-2">
-          <ScrollText className="h-5 w-5 text-primary" />
-          <CardTitle className="text-lg center text-[#86A789]">Legal Guide</CardTitle>
+          <ScrollText className="h-5 w-5 text-secondary" />
+          <CardTitle className="text-xl center text-primary font-primary">Legal Guide</CardTitle>
         </div>
       </CardHeader>
       <CardContent>

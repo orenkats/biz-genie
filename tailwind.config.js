@@ -59,11 +59,13 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
+        primary: ["Montserrat", "sans-serif"], // Set your secondary font
+        secondary: ["Playfair Display", "serif"], // Set your primary font
+        
         sans: ["Inter", "sans-serif"],
         serif: ["DM Serif Text", "serif"],
-        montserrat: ["Montserrat", "sans-serif"],
         body: ["Open Sans", "sans-serif"],
-    },
+      },
     keyframes: {
       "accordion-down": {
         from: { height: "0" },

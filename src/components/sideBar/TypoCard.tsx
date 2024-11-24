@@ -12,7 +12,7 @@ const TypoCard: React.FC<{ fonts: string[] }> = ({ fonts }) => {
     <Card className="hover:scale-105 transition-transform duration-300">
       <CardHeader>
         <div className="flex items-center space-x-2">
-          <Pen className="h-5 w-5 text-primary" />
+          <Pen className="h-5 w-5 text-secondary" />
           <CardTitle className="text-xl text-primary">Typography</CardTitle>
         </div>
       </CardHeader>

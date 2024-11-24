@@ -6,8 +6,8 @@ const ExecutiveSummaryCard = () => {
     <Card className="hover:scale-105 transition-transform duration-300">
       <CardHeader>
         <div className="flex items-center space-x-2">
-          <FileText className="h-5 w-5 text-primary" />
-          <CardTitle className="text-xl text-primary">Executive Summary</CardTitle>
+          <FileText className="h-5 w-5 text-secondary" />
+          <CardTitle className="text-xl text-primary font-primary">Executive Summary</CardTitle>
         </div>
       </CardHeader>
       <CardContent>

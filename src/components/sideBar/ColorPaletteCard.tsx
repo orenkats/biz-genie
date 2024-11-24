@@ -10,7 +10,7 @@ const ColorPaletteCard: React.FC<ColorPaletteCardProps> = ({ colors }) => {
     <Card className="hover:scale-105 transition-transform duration-300">
       <CardHeader>
         <div className="flex items-center space-x-2">
-          <Palette className="h-5 w-5 text-primary" />
+          <Palette className="h-5 w-5 text-secondary" />
           <CardTitle className="text-xl text-primary">Color Palette</CardTitle>
         </div>
       </CardHeader>

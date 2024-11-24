@@ -1,13 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Palette } from "lucide-react";
+import { Paintbrush } from "lucide-react";
 
 const LogoConceptCard = () => {
   return (
     <Card className="hover:scale-105 transition-transform duration-300">
       <CardHeader>
         <div className="flex items-center space-x-2">
-          <Palette className="h-5 w-5 text-[#86A789]" />
-          <CardTitle className="text-xl text-[#86A789]">Logo Concept</CardTitle>
+          <Paintbrush className="h-5 w-5 text-secondary" />
+          <CardTitle className="text-xl text-primary font-primary">Logo Concept</CardTitle>
         </div>
       </CardHeader>
       <CardContent className=" flex flex-col h-36">

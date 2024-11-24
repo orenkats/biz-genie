@@ -17,19 +17,19 @@ const HeroSection = () => {
       </h1>
       <div className="mt-8 space-y-8 text-lg leading-8 text-gray-600 animate-fade-in-slow">
         <p>
-          <span className="font-semibold font-body text-primary">Instant Biz Magic:</span>{" "}
+          <span className="font-semibold  text-primary font-primary">Instant Biz Magic:</span>{" "}
           See your vision materialize in real time as our AI creates a tailored
           business plan, brand identity, marketing strategy, and legal guide in
           moments.
         </p>
         <p>
-          <span className="font-semibold font-body text-primary">Customized For You:</span>{" "}
+          <span className="font-semibold  text-primary font-primary">Customized For You:</span>{" "}
           No generic templates here. Whether you're starting from scratch or
           optimizing an existing business, BizGen tailors every aspect, from
           marketing strategy to brand voice.
         </p>
         <p>
-          <span className="font-semibold font-body text-primary">
+          <span className="font-semibold  text-primary font-primary">
             Time and Cost-Efficient:
           </span>{" "}
           No costly advisors, agencies, and months of development. BizGen cuts time
@@ -40,7 +40,7 @@ const HeroSection = () => {
         <Button
           onClick={handleGenerateBusiness} 
           size="lg"
-          className="animate-fade-in bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%] hover:bg-right transition-all duration-500 text-lg text-balance font-sans px-8 py-6 h-auto rounded-3xl"
+          className="animate-fade-in bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%] hover:bg-right transition-all duration-500 text-lg text-balance font-primary px-8 py-6 h-auto rounded-3xl"
         >
           Generate Business Plan
         </Button>

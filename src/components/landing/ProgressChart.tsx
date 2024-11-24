@@ -35,11 +35,14 @@ const chartConfig = {
 
 export function ProgressChart() {
   return (
-    <Card className="hover:scale-105 transition-transform duration-300 h-52  overflow-hidden animate-fade-in-slow">
+    <Card className="hover:scale-105 transition-transform duration-300 h-60  overflow-hidden animate-fade-in-slow">
       <CardHeader>
-        <CardTitle className="text-center text-primary">Progress
-          Chart
-        </CardTitle>
+        <div className="flex items-center space-x-2">
+          <TrendingUp className="h-5 w-5 text-secondary" />
+          <CardTitle className="text-xl text-primary font-primary">Progress
+            Chart
+          </CardTitle>
+        </div>
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 overflow-hidden ">

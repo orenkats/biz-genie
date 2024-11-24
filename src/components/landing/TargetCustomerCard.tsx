@@ -6,8 +6,8 @@ const TargetCustomerCard = () => {
     <Card className="hover:scale-105 transition-transform duration-300 overflow-hidden h-10 flex-auto">
       <CardHeader>
         <div className="flex items-center space-x-2">
-          <Users className="h-5 w-5 text-primary" />
-          <CardTitle className="text-xl text-primary">Target Customer</CardTitle>
+          <Users className="h-5 w-5 text-secondary" />
+          <CardTitle className="text-xl text-primary font-primary">Target Customer</CardTitle>
         </div>
       </CardHeader>
       <CardContent>

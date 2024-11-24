@@ -59,7 +59,7 @@ const ContentCard = ({ title, content }: ContentCardProps) => {
       <CardHeader className="border-b">
         <div className="flex items-center gap-2">
           <Icon className="h-5 w-5 text-primary" />
-          <CardTitle className="text-xl text-primary">{title}</CardTitle>
+          <CardTitle className="text-xl text-[#27272a]">{title}</CardTitle>
         </div>
       </CardHeader>
       <CardContent className="p-6 markdown-content">

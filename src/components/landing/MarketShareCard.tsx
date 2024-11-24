@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PieChart, Pie, Cell } from "recharts";
+import { CircleDotDashed } from "lucide-react";
 
 const marketShareData = [
   { name: "Our Cafe", value: 30 },
@@ -14,9 +15,10 @@ const MarketShareCard = () => {
   return (
     <Card className="hover:scale-105 transition-transform duration-300">
       <CardHeader>
-        <CardTitle className="text-xl text-primary">
-          Market Share Projection
-        </CardTitle>
+        <div className="flex items-center space-x-2">
+          <CircleDotDashed className="h-5 w-5 text-secondary" />
+          <CardTitle className="text-xl text-primary font-primary">Market Share Projection</CardTitle>
+        </div>  
       </CardHeader>
       <CardContent className="flex flex-col items-center">
         <div style={{ width: "100%", height: 285 }}>

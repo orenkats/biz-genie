@@ -1,11 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import {Key} from "lucide-react"
 
 const KeyMetricsCard = () => {
   return (
     <Card className="hover:scale-105 transition-transform duration-300">
       <CardHeader>
-        <CardTitle className="text-xl text-primary">Key Metrics</CardTitle>
+        <div className="flex items-center space-x-2">
+          <Key className="h-5 w-5 text-secondary" />
+          <CardTitle className="text-xl text-primary font-primary">Key Metrics</CardTitle>
+        </div>  
       </CardHeader>
       <CardContent>
         <div className="space-y-6">

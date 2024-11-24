@@ -66,7 +66,7 @@ const BusinessPlan = () => {
         <div className="flex items-center justify-center h-full">
           <h1
             className={classNames(
-              "absolute top-0 w-full text-center mt-4 z-10 text-3xl font-bold text-primary",
+              "absolute top-0 w-full text-center mt-4 z-10 text-3xl font-bold text-eggplant",
               { "animate-pulse": isLoading }
             )}
           >
@@ -102,13 +102,16 @@ const BusinessPlan = () => {
 
   return (
     <div className="flex h-screen">
+      
       <ScrollArea className="h-screen w-[300px] border-r bg-background">
         <BusinessPlanSidebar 
           onItemSelect={setSelectedItem} 
           businessName={businessNameString}  
         />
       </ScrollArea>
-      <main className="flex-1 p-8 flex justify-center">
+      
+      <main className="flex-1 p-8 flex justify-start">
+        
         <div className="w-full max-w-4xl">{renderContent()}</div>
       </main>
 

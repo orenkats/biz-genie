@@ -1,12 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
+import {AlarmClock} from "lucide-react"
 const TimelineCard = () => {
   return (
-    <Card className="hover:scale-105 transition-transform duration-300">
+    <Card className="hover:scale-105 transition-transform duration-300 h-28 flex-auto">
       <CardHeader>
-        <CardTitle className="text-xl text-primary">
-          Implementation Timeline
-        </CardTitle>
+        <div className="flex items-center space-x-2">
+          <AlarmClock className="h-5 w-5 text-secondary" />
+          <CardTitle className="text-xl text-primary font-primary">Implementation Timeline</CardTitle>
+        </div>  
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
